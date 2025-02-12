@@ -215,16 +215,29 @@ def main_chain():
     :return: The sequential chain of tools containing tasks for handling
         and processing GitHub events.
     """
-    tools = [
-        Tool(name="Read GitHub Event", func=read_github_event),
-        Tool(name="Get PR Details", func=get_pr_details),
-        Tool(name="Get Diff", func=get_diff),
-        Tool(name="Filter Files", func=filter_files),
-        Tool(name="Analyze Code", func=analyze_code),
-        Tool(name="Create Review Comment", func=create_review_comment),
-    ]
-    return SequentialChain(chains=tools, verbose=True)
+    action = get_env_var("REPO_RECOMMENDER_ACTION", "prreview").lower()
+    return sequentialChainForAction(action)
 
+def sequentialChainForAction(action):
+    if(action == "prreview"):
+        tools = [
+            Tool(name="Read GitHub Event", func=read_github_event),
+            Tool(name="Get PR Details", func=get_pr_details),
+            Tool(name="Get Diff", func=get_diff),
+            Tool(name="Filter Files", func=filter_files),
+            Tool(name="Analyze Code", func=analyze_code),
+            Tool(name="Create Review Comment", func=create_review_comment),
+        ]
+    elif(action == ""):
+        tools = [
+            Tool(name="Read GitHub Event", func=read_github_event),
+            Tool(name="Get PR Details", func=get_pr_details),
+            Tool(name="Get Diff", func=get_diff),
+            Tool(name="Filter Files", func=filter_files),
+            Tool(name="Analyze Code", func=analyze_code),
+            Tool(name="Create Review Comment", func=create_review_comment),
+        ]
+    return SequentialChain(chains=tools, verbose=True)
 
 if __name__ == "__main__":
     try:
