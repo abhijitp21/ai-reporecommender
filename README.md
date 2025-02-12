@@ -55,7 +55,7 @@ jobs:
 
 ## How It Works
 
-The AI Code Reviewer GitHub Action retrieves the pull request diff, filters out excluded files, and sends code chunks to
+The AI Repo Recommender GitHub Action retrieves the pull request diff, filters out excluded files, and sends code chunks to
 the OpenAI API. It then generates review comments based on the AI's response and adds them to the pull request.
 
 ## Contributing
