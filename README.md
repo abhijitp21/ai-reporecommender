@@ -22,7 +22,7 @@ review process.
 3. Create a `.github/workflows/main.yml` file in your repository and add the following content:
 
 ```yaml
-name: AI Code Reviewer
+name: AI Repo Recommender Action
 
 on:
   pull_request:
