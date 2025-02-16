@@ -1,8 +1,8 @@
-FROM python:3.11
-RUN pip install --upgrade pip
-RUN pip install -Iv -U PyGithub==1.58.2
-RUN pip install -Iv -U openai==0.27.8
-RUN pip install -Iv -U langchain
+FROM python:3.13
+RUN pip3 install --upgrade pip
+RUN pip3 install -Iv -U PyGithub==1.58.2
+RUN pip3 install -Iv -U openai==0.27.8
+RUN pip3 install -Iv -U langchain_community
 
 COPY ./ /aireporecommender
 
