@@ -2,10 +2,10 @@ import os
 import json
 from pathlib import Path
 import fnmatch
-from langchain.chains.sequential import SequentialChain
-from langchain.prompts import PromptTemplate
-from langchain.chat_models import ChatOpenAI
-from langchain.tools import Tool, tool
+from langchain_community.chains import SequentialChain
+from langchain_core.prompts import PromptTemplate
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.tools import Tool, tool
 
 # Constants
 EMPTY_EVENT_PATH = ""
